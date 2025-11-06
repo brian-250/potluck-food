@@ -1,26 +1,212 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Convivio Notes</title>
-  <link rel="stylesheet" href="styles.css" />
-  <style>
-    textarea {
-      width: 95%;
-      display: block;
-      margin: 1rem auto;
-      padding: 0.5rem;
-      font-size: 1rem;
-      resize: vertical;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convivio Sheet</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header><h2>Notas del Convivio</h2></header>
-  <main id="notesContainer"></main>
-  <footer></footer>
+  <header>
+    <h1>📗 Convivio Programado - Noviembre 18, 2025</h1>
+  </header>
 
-  <script type="module" src="script.js"></script>
+  <main>
+    <table id="sheet">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nombre del Estudiante</th>
+          <th>Invitados Adultos</th>
+          <th>Invitados Niños</th>
+          <th>Total Invitados</th>
+        </tr>
+      </thead>
+      <tbody>
+  <tr>
+    <td>1</td><td contenteditable id="r1c2"></td><td contenteditable id="r1c3"></td><td contenteditable id="r1c4"></td><td contenteditable id="r1c5"></td>
+  </tr>
+  <tr>
+    <td>2</td><td contenteditable id="r2c2"></td><td contenteditable id="r2c3"></td><td contenteditable id="r2c4"></td><td contenteditable id="r2c5"></td>
+  </tr>
+  <tr>
+    <td>3</td><td contenteditable id="r3c2"></td><td contenteditable id="r3c3"></td><td contenteditable id="r3c4"></td><td contenteditable id="r3c5"></td>
+  </tr>
+  <tr>
+    <td>4</td><td contenteditable id="r4c2"></td><td contenteditable id="r4c3"></td><td contenteditable id="r4c4"></td><td contenteditable id="r4c5"></td>
+  </tr>
+  <tr>
+    <td>5</td><td contenteditable id="r5c2"></td><td contenteditable id="r5c3"></td><td contenteditable id="r5c4"></td><td contenteditable id="r5c5"></td>
+  </tr>
+  <tr>
+    <td>6</td><td contenteditable id="r6c2"></td><td contenteditable id="r6c3"></td><td contenteditable id="r6c4"></td><td contenteditable id="r6c5"></td>
+  </tr>
+  <tr>
+    <td>7</td><td contenteditable id="r7c2"></td><td contenteditable id="r7c3"></td><td contenteditable id="r7c4"></td><td contenteditable id="r7c5"></td>
+  </tr>
+  <tr>
+    <td>8</td><td contenteditable id="r8c2"></td><td contenteditable id="r8c3"></td><td contenteditable id="r8c4"></td><td contenteditable id="r8c5"></td>
+  </tr>
+  <tr>
+    <td>9</td><td contenteditable id="r9c2"></td><td contenteditable id="r9c3"></td><td contenteditable id="r9c4"></td><td contenteditable id="r9c5"></td>
+  </tr>
+  <tr>
+    <td>10</td><td contenteditable id="r10c2"></td><td contenteditable id="r10c3"></td><td contenteditable id="r10c4"></td><td contenteditable id="r10c5"></td>
+  </tr>
+  <tr>
+    <td>11</td><td contenteditable id="r11c2"></td><td contenteditable id="r11c3"></td><td contenteditable id="r11c4"></td><td contenteditable id="r11c5"></td>
+  </tr>
+  <tr>
+    <td>12</td><td contenteditable id="r12c2"></td><td contenteditable id="r12c3"></td><td contenteditable id="r12c4"></td><td contenteditable id="r12c5"></td>
+  </tr>
+  <tr>
+    <td>13</td><td contenteditable id="r13c2"></td><td contenteditable id="r13c3"></td><td contenteditable id="r13c4"></td><td contenteditable id="r13c5"></td>
+  </tr>
+  <tr>
+    <td>14</td><td contenteditable id="r14c2"></td><td contenteditable id="r14c3"></td><td contenteditable id="r14c4"></td><td contenteditable id="r14c5"></td>
+  </tr>
+  <tr>
+    <td>15</td><td contenteditable id="r15c2"></td><td contenteditable id="r15c3"></td><td contenteditable id="r15c4"></td><td contenteditable id="r15c5"></td>
+  </tr>
+  <tr>
+    <td>16</td><td contenteditable id="r16c2"></td><td contenteditable id="r16c3"></td><td contenteditable id="r16c4"></td><td contenteditable id="r16c5"></td>
+  </tr>
+  <tr>
+    <td>17</td><td contenteditable id="r17c2"></td><td contenteditable id="r17c3"></td><td contenteditable id="r17c4"></td><td contenteditable id="r17c5"></td>
+  </tr>
+  <tr>
+    <td>18</td><td contenteditable id="r18c2"></td><td contenteditable id="r18c3"></td><td contenteditable id="r18c4"></td><td contenteditable id="r18c5"></td>
+  </tr>
+  <tr>
+    <td>19</td><td contenteditable id="r19c2"></td><td contenteditable id="r19c3"></td><td contenteditable id="r19c4"></td><td contenteditable id="r19c5"></td>
+  </tr>
+  <tr>
+    <td></td><td>TOTAL</td><td contenteditable id="r20c3"></td><td contenteditable id="r20c4"></td><td contenteditable id="r20c5"></td>
+  </tr>
+</tbody>
+
+    </table>
+  </main>
+
+  <main>
+    <table>
+      <thead>
+        <tr>
+          <th>Comida Caliente</th>
+          <th>Comida Fria</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+  <tr>
+    <td>Comida en caldo caliente:</td>
+    <td>Ensalada de coditos (1 charola):</td>
+    <td>Postre:</td>
+  </tr>
+  <tr>
+    <td contenteditable id="fr2c1"></td>
+    <td contenteditable id="fr2c2"></td>
+    <td contenteditable id="fr2c3"></td>
+  </tr>
+  <tr>
+    <td contenteditable id="fr3c1"></td>
+    <td contenteditable id="fr3c2"></td>
+    <td contenteditable id="fr3c3"></td>
+  </tr>
+  <tr>
+    <td contenteditable id="fr4c1"></td>
+    <td contenteditable id="fr4c2"></td>
+    <td contenteditable id="fr4c3"></td>
+  </tr>
+  <tr>
+    <td>Comida "guisado" o frita:</td>
+    <td>Ensalada Verde (1 charola):</td>
+    <td>Pan dulce:</td>
+  </tr>
+  <tr>
+    <td contenteditable id="fr6c1"></td>
+    <td contenteditable id="fr6c2"></td>
+    <td contenteditable id="fr6c3"></td>
+  </tr>
+  <tr>
+    <td contenteditable id="fr7c1"></td>
+    <td contenteditable id="fr7c2"></td>
+    <td contenteditable id="fr7c3"></td>
+  </tr>
+  <tr>
+    <td contenteditable id="fr8c1"></td>
+    <td contenteditable id="fr8c2"></td>
+    <td contenteditable id="fr8c3"></td>
+  </tr>
+  <tr>
+    <td>Arroz (1 charola):</td>
+    <td>Fruta (3 charolas):</td>
+    <td>Bebidas:</td>
+  </tr>
+  <tr>
+    <td contenteditable id="fr10c1"></td>
+    <td contenteditable id="fr10c2"></td>
+    <td contenteditable id="fr10c3"></td>
+  </tr>
+  <tr>
+    <td contenteditable id="fr11c1"></td>
+    <td contenteditable id="fr11c2"></td>
+    <td contenteditable id="fr11c3"></td>
+  </tr>
+  <tr>
+    <td contenteditable id="fr12c1"></td>
+    <td contenteditable id="fr12c2"></td>
+    <td contenteditable id="fr12c3"></td>
+  </tr>
+  <tr>
+    <td>Frijoles (1 charola pequena)</td>
+    <td></td>
+    <td>Desechable para 100 personas:</td>
+  </tr>
+  <tr>
+    <td contenteditable id="fr14c1"></td>
+    <td contenteditable id="fr14c2"></td>
+    <td contenteditable id="fr14c3"></td>
+  </tr>
+  <tr>
+    <td contenteditable id="fr15c1"></td>
+    <td contenteditable id="fr15c2"></td>
+    <td contenteditable id="fr15c3"></td>
+  </tr>
+  <tr>
+    <td contenteditable id="fr16c1"></td>
+    <td contenteditable id="fr16c2"></td>
+    <td contenteditable id="fr16c3"></td>
+  </tr>
+  <tr>
+    <td>Pizza (6 cajas):</td>
+    <td contenteditable id="fr17c2"></td>
+    <td contenteditable id="fr17c3"></td>
+  </tr>
+  <tr>
+    <td contenteditable id="fr18c1"></td>
+    <td contenteditable id="fr18c2"></td>
+    <td contenteditable id="fr18c3"></td>
+  </tr>
+  <tr>
+    <td contenteditable id="fr19c1"></td>
+    <td contenteditable id="fr19c2"></td>
+    <td contenteditable id="fr19c3"></td>
+  </tr>
+  <tr>
+    <td contenteditable id="fr20c1"></td>
+    <td contenteditable id="fr20c2"></td>
+    <td contenteditable id="fr20c3"></td>
+  </tr>
+</tbody>
+
+    </table>
+  </main>
+
+  <footer>
+    <p>Auto-guardado en tiempo real ✅</p>
+  </footer>
+
+  <script type="module" src="app.js"></script>
 </body>
 </html>
