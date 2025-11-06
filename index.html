@@ -3,16 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Convivio</title>
+  <title>Convivio Notes</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    textarea {
+      width: 95%;
+      display: block;
+      margin: 1rem auto;
+      padding: 0.5rem;
+      font-size: 1rem;
+      resize: vertical;
+    }
+  </style>
 </head>
 <body>
-    <header>Invitados y Comida para el Convivio</header>
-    <main>
-    <textarea id="sharedText" placeholder="Escribe aqui..." rows="100" cols="100"></textarea>
-    </main>
-    <footer></footer>
+  <header><h2>Notas del Convivio</h2></header>
+  <main id="notesContainer"></main>
+  <footer></footer>
+
   <script type="module" src="script.js"></script>
 </body>
 </html>
