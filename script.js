@@ -1,40 +1,77 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
+import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-database.js";
 
-// 🔥 Replace this with your own Firebase project config
+// --- Firebase Config ---
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  databaseURL: "https://YOUR_PROJECT.firebaseio.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyAeW2l6pPe2sEm9Xc-G_oeiebYMcineq8Q",
+  authDomain: "convivio-notes.firebaseapp.com",
+  projectId: "convivio-notes",
+  storageBucket: "convivio-notes.firebasestorage.app",
+  messagingSenderId: "428688982425",
+  appId: "1:428688982425:web:240718e4b7a109657c9308",
+  databaseURL: "https://convivio-notes-default-rtdb.firebaseio.com/"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-// Load all cells and listen for updates
-window.addEventListener("DOMContentLoaded", () => {
-  const cells = document.querySelectorAll("td[contenteditable]");
+// --- Saved Indicator Setup ---
+const footer = document.querySelector("footer");
+const status = document.createElement("span");
+status.id = "save-status";
+status.textContent = "";
+status.style.marginLeft = "8px";
+footer.appendChild(status);
 
-  cells.forEach(cell => {
-    const id = cell.id;
+function showSavedMessage(message = "Guardado ✅") {
+  status.textContent = message;
+  status.style.color = "#188038";
+  status.style.opacity = "1";
+  clearTimeout(showSavedMessage.timeout);
+  showSavedMessage.timeout = setTimeout(() => {
+    status.style.transition = "opacity 0.6s ease";
+    status.style.opacity = "0";
+  }, 1200);
+}
 
-    // Load value from database
-    onValue(ref(db, "sheet/" + id), (snapshot) => {
-      const val = snapshot.val();
-      if (val !== null && val !== cell.textContent) {
-        cell.textContent = val;
-      }
-    });
+// --- Hybrid Sync Logic ---
+const cells = document.querySelectorAll("[contenteditable][id]");
 
-    // Auto-save on edit
-    cell.addEventListener("input", () => {
-      const value = cell.textContent.trim();
-      set(ref(db, "sheet/" + id), value);
-    });
+cells.forEach(cell => {
+  const id = cell.id;
+  const cellRef = ref(db, "cells/" + id);
+
+  // Load from localStorage first
+  const localValue = localStorage.getItem(id);
+  if (localValue !== null) {
+    cell.innerText = localValue;
+  }
+
+  // Load from Firebase (real-time)
+  onValue(cellRef, snapshot => {
+    const firebaseValue = snapshot.val();
+    if (firebaseValue !== null && firebaseValue !== cell.innerText) {
+      cell.innerText = firebaseValue;
+      localStorage.setItem(id, firebaseValue);
+    }
+  });
+
+  // Save changes locally + to Firebase
+  let saveTimeout;
+  cell.addEventListener("input", () => {
+    const value = cell.innerText;
+    localStorage.setItem(id, value);
+    showSavedMessage("Guardando...");
+
+    // Debounce Firebase updates
+    clearTimeout(saveTimeout);
+    saveTimeout = setTimeout(() => {
+      set(cellRef, value)
+        .then(() => showSavedMessage("Guardado ✅"))
+        .catch(() => showSavedMessage("⚠️ Error al guardar"));
+    }, 500);
   });
 });
+
+console.log("✅ Hybrid sync (local + Firebase) + visual save indicator active");
